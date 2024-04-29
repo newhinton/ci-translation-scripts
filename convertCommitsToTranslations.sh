@@ -7,7 +7,6 @@ for file in ${@:2}; do
     if [[ "$file" == "fastlane/metadata/android/"* ]]; then
         echo "$file was changed"
         cat "$file" >> "$TARGET"
-	echo "\n" >> "$TARGET"
     fi
 done
 cat "$TARGET"
