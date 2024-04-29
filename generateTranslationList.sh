@@ -11,4 +11,4 @@ TRANSLATIONS=$(cat changed_texts.txt)
 TRANSLATIONS="${TRANSLATIONS//'%'/' ; '}"
 TRANSLATIONS="${TRANSLATIONS//$'\n'/' ; '}"
 TRANSLATIONS="${TRANSLATIONS//$'\r'/' ; '}"
-echo $TRANSLATIONS
+echo $TRANSLATIONS >> generatedContent.txt
