@@ -9,6 +9,7 @@ for file in ${@:2}; do
         cat "$file" >> generatedContent.txt
     fi
 done
+cat generatedContent.txt
 
 SEARCH='strings.xml'
 CHANGEDFILES=''
