@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo "Only pass the amount of commits and one translation file!"
+    echo "Only pass the amount of commits and one translation file! $@"
     exit 1
 fi
 
