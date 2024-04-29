@@ -24,7 +24,7 @@ done
 echo "$CHANGEDFILES"
 echo "$1"
 
-echo $(git diff -U0 HEAD~$1 $CHANGEDFILES)
+echo git diff -U0 HEAD~$1 $CHANGEDFILES
 
 DIFF=$(git diff -U0 HEAD~$1 $CHANGEDFILES | grep -E "^\+" | grep -v +++ | cut -c 2- | sed 's/^[ \t]*\(.*$\)/\1/')
 echo "$DIFF"
