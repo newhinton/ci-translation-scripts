@@ -7,6 +7,7 @@ for file in ${@:2}; do
     if [[ "$file" == "fastlane/metadata/android/"* ]]; then
         echo "$file was changed"
         cat "$file" >> "$TARGET"
+	printf "\n" >> "$TARGET"
     fi
 done
 cat "$TARGET"
@@ -23,10 +24,8 @@ done
 echo "$CHANGEDFILES"
 echo "$1"
 
-echo git diff -U0 HEAD~$1 $CHANGEDFILES
 
 DIFF=$(git diff -U0 HEAD~$1 $CHANGEDFILES | grep -E "^\+" | grep -v +++ | cut -c 2- | sed 's/^[ \t]*\(.*$\)/\1/')
-echo "$DIFF"
 echo "<xml>$DIFF</xml>" | xmlstarlet sel -t -m '//string' -v . -n > changed_texts.txt
 TRANSLATIONS=$(cat changed_texts.txt)
 TRANSLATIONS="${TRANSLATIONS//'%'/' ; '}"
